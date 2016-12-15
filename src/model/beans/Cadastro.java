@@ -29,11 +29,11 @@ public class Cadastro implements Serializable {
 		this.idPerguntas = new ArrayList<Integer>();
 	}
 
-	public Integer getIdCadastro() {
+	public Integer getIdUsr() {
 		return id;
 	}
 
-	public void setIdCadastro(Integer id) {
+	public void setIdUsr(Integer id) {
 		this.id = id;
 	}
 	

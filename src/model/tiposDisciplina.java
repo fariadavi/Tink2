@@ -5,7 +5,6 @@ public enum tiposDisciplina {
 	ARTES("Linguagens, Códigos e suas Tecnologias", "Artes corporais"),
 	TEXTO_LITERIARIO("Linguagens, Códigos e suas Tecnologias", "Texto literário"),
 	PRODUCAO_TEXTO("Linguagens, Códigos e suas Tecnologias", "Produção de texto"),
-	ARGUMENTACAO("Linguagens, Códigos e suas Tecnologias", "Argumentação"),
 	NORMAL_CULTA("Linguagens, Códigos e suas Tecnologias", "Norma culta da língua"),
 	TEC_INFO_COMUNICACAO("Linguagens, Códigos e suas Tecnologias", "Tecnologias da Informação e Comunicação"),
 
@@ -17,15 +16,14 @@ public enum tiposDisciplina {
 	LEIS_GRAVIDADE("Ciências da Natureza e suas Tecnologias", "Leis da Gravidade"),
 	FEN_ELETRICOS_MAGNETISMO("Ciências da Natureza e suas Tecnologias", "Fenômenos elétricos e magnéticos"),
 	TRANSFORMACOES_QUIMICAS("Ciências da Natureza e suas Tecnologias", "Transformações químicas"),
-	AGUA("Ciências da Natureza e suas Tecnologias", "Água"),
-	QUIMICA_COTIDIANO("Ciências da Natureza e suas Tecnologias", "Química, Sociedade e Cotidiano"),
+	QUIMICA("Ciências da Natureza e suas Tecnologias", "Química"),
 	MOLECULAS_CELULAS_TECIDOS("Ciências da Natureza e suas Tecnologias", "Moléculas, Células e Tecidos"),
 	ORGANIZACAO_SERES("Ciências da Natureza e suas Tecnologias", "Organização dos seres vivos"),
 	ECOLOGIA("Ciências da Natureza e suas Tecnologias", "Ecologia"),
 	EVOLUCAO("Ciências da Natureza e suas Tecnologias", "Evolução"),
 
 	DIVERSIDADE_CULTURAL("Ciências Humanas e suas Tecnologias", "Diversidade cultural, conflitos e vida em sociedade"),
-	SOCIOLOGIA("Ciências Humanas e suas Tecnologias", "Formas de organização social, movimentos sociais, pensamento político e ação do Estado"),
+	SOCIOLOGIA("Ciências Humanas e suas Tecnologias", "Sociologia"),
 	ESTRUTURAS("Ciências Humanas e suas Tecnologias", "Estruturas produtivas");
 	
 	private String categoria;
@@ -42,5 +40,10 @@ public enum tiposDisciplina {
 
 	public String getNomeDisciplina() {
 		return nomeDisciplina;
+	}
+	
+	@Override
+	public String toString() {
+		return getNomeDisciplina();
 	}
 }

@@ -2,23 +2,22 @@ package model.beans;
 
 public class Resposta {
 
-	private Cadastro dono;
+	private String username;
 	private String descricao;
 	
 	public Resposta() {}
 	
-	public Resposta(Cadastro cadastro, String descricao) {
-		this.dono = cadastro;
+	public Resposta(String username, String descricao) {
+		this.username = username;
 		this.descricao = descricao;
 	}
 	
-	
-	public Cadastro getDono() {
-		return dono;
+	public String getUserName() {
+		return username;
 	}
 
-	public void setDono(Cadastro dono) {
-		this.dono = dono;
+	public void setDono(String username) {
+		this.username = username;
 	}
 
 	public String getDescricao() {

@@ -11,7 +11,6 @@ public class Pergunta implements Serializable {
 	private static final long serialVersionUID = 8695643412221891448L;
 	
 	private int idPergunta;
-//	private Cadastro dono;
 	private tiposDisciplina disciplina;
 	private String titulo;
 	private String descricao;
@@ -19,21 +18,12 @@ public class Pergunta implements Serializable {
 	
 	public Pergunta() {}
 	
-	public Pergunta(/*Cadastro cadastro,*/ tiposDisciplina disciplina, String titulo, String descricao) {
-//		this.dono = cadastro;
+	public Pergunta(tiposDisciplina disciplina, String titulo, String descricao) {
 		this.disciplina = disciplina;
 		this.titulo = titulo;
 		this.descricao = descricao;
 		this.respostas = new ArrayList<Resposta>();
 	}
-
-//	public Cadastro getDono() {
-//		return dono;
-//	}
-//
-//	public void setDono(Cadastro dono) {
-//		this.dono = dono;
-//	}
 
 	public int getIdPergunta() {
 		return idPergunta;

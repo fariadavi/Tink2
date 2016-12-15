@@ -4,7 +4,7 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import model.tiposAcesso;
+import model.beans.Cadastro;
 import view.ItemMenu;
 import view.TelaLogin;
 import view.TelaMenu;
@@ -14,11 +14,11 @@ import view.TelaRanking;
 public class MenuHandler {
 	
 	private TelaMenu menuView;
-	private tiposAcesso tipoAcesso;
+	private Cadastro usrLogado;
 	
-	public MenuHandler(TelaMenu menuView, tiposAcesso tipoAcesso) {
+	public MenuHandler(TelaMenu menuView, Cadastro usrLogado) {
 		this.menuView = menuView;
-		this.tipoAcesso = tipoAcesso;
+		this.usrLogado = usrLogado;
 		
 		this.menuView.addMenuListener(new MenuListener());
 		
@@ -29,7 +29,7 @@ public class MenuHandler {
 	private void setTipoMenu() {
 		ItemMenu[] opcoes = menuView.getOpcoes();
 		
-		switch (tipoAcesso) {
+		switch (usrLogado.getTipoAcesso()) {
 			case ALUNO:
 		        opcoes[1].setBotaoOpcaoText("Minhas Perguntas");
 		        opcoes[1].setBotaoOpcaoName("MINHAS_PERG");
@@ -54,7 +54,7 @@ public class MenuHandler {
 
 			case "CRIAR_PERG":
 				TelaNovaPergunta telaNovaPergunta = new TelaNovaPergunta();
-				new PerguntaHandler(telaNovaPergunta); 
+				new NovaPerguntaHandler(telaNovaPergunta, usrLogado); 
 				telaNovaPergunta.setVisible(true);
 				telaNovaPergunta.setLocationRelativeTo(null);	
 				break;
@@ -63,6 +63,10 @@ public class MenuHandler {
 				break;
 
 			case "RESP_PERG":
+				TelaNovaPergunta telaNovaPergunta2 = new TelaNovaPergunta();
+				new NovaPerguntaHandler(telaNovaPergunta2, usrLogado); 
+				telaNovaPergunta2.setVisible(true);
+				telaNovaPergunta2.setLocationRelativeTo(null);	
 				break;
 
 			case "PESQ_PERG":

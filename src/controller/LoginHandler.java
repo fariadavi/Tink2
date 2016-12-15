@@ -24,9 +24,15 @@ public class LoginHandler {
 		this.loginView.addLoginListener(new LoginListener());
 	}
 
-	public boolean validLogin(Login loginInfo) {
+	public Cadastro validLogin(Login loginInfo) {
 		Cadastro userFound = dao.getCadastro(loginInfo.getUser());
-		return userFound != null && userFound.getPassword().equals(loginInfo.getPassword()) && userFound.getTipoAcesso().equals(loginInfo.getTipoAcesso());
+		
+		if (userFound != null 
+				&& userFound.getPassword().equals(loginInfo.getPassword())
+				&& userFound.getTipoAcesso().equals(loginInfo.getTipoAcesso()))
+			return userFound;
+		
+		return null;
 	}
 	
 	class LoginListener implements ActionListener {
@@ -49,13 +55,14 @@ public class LoginHandler {
 				
 				Login loginInfo = new Login(loginView.getUser(), loginView.getPassword(), loginView.isAluno(), loginView.isProfessor());
 				
-				if(!validLogin(loginInfo)) {
+				Cadastro usrLogado = validLogin(loginInfo);
+				if(usrLogado == null) {
 					loginView.displayMessage("Usuário e/ou senha inválidos!");
 					break;
 				}
 				
 				TelaMenu telaMenu = new TelaMenu();
-				new MenuHandler(telaMenu, loginInfo.getTipoAcesso()); 
+				new MenuHandler(telaMenu, usrLogado); 
 				telaMenu.setVisible(true);
 				telaMenu.setLocationRelativeTo(null);
 				loginView.dispose();

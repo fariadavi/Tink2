@@ -18,9 +18,13 @@ public class CadastroDAO extends XmlDAO<Cadastro> {
 
 	@Override
 	public void addEntry(Cadastro novoCadastro) {
-		novoCadastro.setIdCadastro(cadastros.size()+1);
+		novoCadastro.setIdsOnSave(cadastros.size()+1);
 		cadastros.add(novoCadastro);
 		writeXML(cadastros);
+	}
+	
+	public void updateEntry(Cadastro cadastro) {
+		getList().set(cadastro.getIdUsr()-1, cadastro);
 	}
 	
 	public Cadastro getCadastro(String userLoginInfo) {
